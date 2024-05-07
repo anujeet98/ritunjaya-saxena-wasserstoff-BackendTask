@@ -8,7 +8,7 @@ const userSchema = new Schema({
         type: String,
         required: true,
         unique: true,
-        default: uuidv4,
+        default: uuidv4(),
         index: true,
     },
     email:{

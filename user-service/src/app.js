@@ -21,7 +21,7 @@ const serverInit = async() => {
         console.log('User-Service :: Database connection establised.');
 
         app.listen(process.env.APP_PORT || 3000, ()=>{
-            console.log('User-Service :: started...');
+            console.log('User-Service :: started.');
         })
     }
     catch(err){

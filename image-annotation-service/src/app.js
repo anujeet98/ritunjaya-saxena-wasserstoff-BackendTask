@@ -4,6 +4,7 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 const processRoute = require('./routes/process');
+// const pubsub = require('./services/pubsub-api');
 
 
 const app = express();
@@ -11,7 +12,7 @@ app.use(cors());
 app.use(express.json({extended: false}));
 
 
-app.use('/', processRoute);
+app.use('/',processRoute );
 
 
 const serverInit = async() => {

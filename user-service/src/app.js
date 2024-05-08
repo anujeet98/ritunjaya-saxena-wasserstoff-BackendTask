@@ -11,11 +11,11 @@ const proxy = require('express-http-proxy');
 
 const app = express();
 app.use(cors());
-app.use(express.json({extended: false}));
 
+app.use('/user', express.json({extended: false}), userRoutes);
 
-app.use('/user', userRoutes);
 app.use('/', authenticate, proxy('http://localhost:3000'));
+
 
 
 const serverInit = async() => {

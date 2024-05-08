@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
+const processRoute = require('./routes/process');
 
 
 const app = express();
@@ -10,10 +11,7 @@ app.use(cors());
 app.use(express.json({extended: false}));
 
 
-// app.use('/', userRoutes);
-app.use('/', (req, res)=>{
-    res.send('<h1>image process service</h1>');
-});
+app.use('/', processRoute);
 
 
 const serverInit = async() => {
@@ -27,7 +25,7 @@ const serverInit = async() => {
         })
     }
     catch(err){
-        console.error('Image-annotation-Service :: Failed to connect to database:', err);
+        console.error('Image-annotation-Service :: Failed to connect:', err);
         process.exit(1);
     }
 };

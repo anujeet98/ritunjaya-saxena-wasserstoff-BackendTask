@@ -12,6 +12,7 @@ module.exports.visionapi = async (image) => {
         // Performs label detection on the image file
         const [result] = await client.objectLocalization(image);
         let labels = result.localizedObjectAnnotations;
+        console.log(labels)
 
         //filtering labels with name as Person
         labels = labels.filter(label=>{
@@ -23,6 +24,6 @@ module.exports.visionapi = async (image) => {
         // labels.forEach(label => console.log(label, label.boundingPoly.normalizedVertices));
     }
     catch(err){
-        throw new Error('Image-Annotation-service :: Image processing error');
+        throw new Error('Image-Annotation-service :: Image processing error '+err);
     }
 }

@@ -11,7 +11,7 @@ app.use(express.json());
 
 
 // app.use('/user', proxy('http://localhost:3001/user'));
-app.use('/image', proxy('http://localhost:3002'));
+app.use('/processor', proxy('http://localhost:3002'));
 app.use('/submission', proxy('http://localhost:3003'));
 app.use('/admin', proxy('http://localhost:3004'));
 

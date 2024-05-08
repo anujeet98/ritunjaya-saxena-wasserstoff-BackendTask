@@ -17,6 +17,7 @@
     "cryptr": "^6.3.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
+    "express-http-proxy": "^2.0.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.6.1",
     "mongoose": "^8.3.4",

@@ -37,7 +37,7 @@ module.exports.signin = async(req,res) => {
             const passwordMatch = await bcrypt.compare(password, existingUser.password);
             if(passwordMatch){
                 const cryptr = new Cryptr(process.env.CRYPT_SECRET);
-                const encryptedUserData = cryptr.encrypt(existingUser);
+                const encryptedUserData = cryptr.encrypt(JSON.stringify(existingUser));
                 const expirationTimeInSeconds = 3600;
                 const tokenExpiry = Math.floor(Date.now() / 1000) + expirationTimeInSeconds;
                 const jwtToken = tokenGenereator({user: encryptedUserData, exp: tokenExpiry});

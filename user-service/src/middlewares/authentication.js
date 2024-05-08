@@ -7,7 +7,7 @@ module.exports.authenticate = async(req, res, next) => {
         const token = req.headers.authorization;
         const verifiedToken = jwt.verify(token, process.env.TOKEN_SECRET);
         const cryptr = new Cryptr(process.env.CRYPT_SECRET);
-        const user = cryptr.decrypt(verifiedToken.user);
+        const user = JSON.parse(cryptr.decrypt(verifiedToken.user));
         const verifiedUser = await User.findOne({_id: user._id, email: user.email, userID: user.userID});
 
         if(verifiedUser){

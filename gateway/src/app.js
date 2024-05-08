@@ -7,11 +7,10 @@ const proxy = require('express-http-proxy');
 const app = express();
 
 app.use(cors());
-app.use(express.json());
 
 
 // app.use('/user', proxy('http://localhost:3001/user'));
-app.use('/processor', proxy('http://localhost:3002'));
+app.use('/annotate', proxy('http://localhost:3002'));
 app.use('/submission', proxy('http://localhost:3003'));
 app.use('/admin', proxy('http://localhost:3004'));
 
